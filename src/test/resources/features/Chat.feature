@@ -9,7 +9,7 @@ Feature: Group Chat Feature in Cicle app
   Scenario: Send message in group chat with valid data in message field
     And User input data in message field
     And User click send button
-#    Then Message is successfully sent and displayed in group chat
+    Then Message is successfully sent and displayed in group chat
 
   @PositiveCase
   Scenario: Send or upload video in group chat
@@ -33,7 +33,6 @@ Feature: Group Chat Feature in Cicle app
     And User choose and click image
     Then Image from gallery is successfully sent and displayed in group chat
 
-
   @PositiveCase @done
   Scenario: Send message and mention all member in group chat with valid data in message field
     And User click message field
@@ -42,7 +41,6 @@ Feature: Group Chat Feature in Cicle app
     And User click mention all button
     And User click send button
     Then Message is successfully mentioned all sent and displayed in group chat
-
 
 
   @NegativeCase

@@ -5,7 +5,7 @@ Feature: Group Chat Feature in Cicle app
     Given User already opened Staging Cicle app and click big project team
     When User click group chat in Team
 
-  @PositiveCase
+  @PositiveCase @done
   Scenario: Send message in group chat with valid data in message field
     And User input data in message field
     And User click send button
@@ -33,13 +33,14 @@ Feature: Group Chat Feature in Cicle app
     And User choose and click image
     Then Image from gallery is successfully sent and displayed in group chat
 
-  @PositiveCase @a
+  @PositiveCase @done
   Scenario: Send message and mention all member in group chat with valid data in message field
     And User click message field
     And User input data in message field
     And User click @ button
     And User click mention all button
     And User click send button
+    Then Message is successfully mentioned all sent and displayed in group chat
 
 
   @NegativeCase
