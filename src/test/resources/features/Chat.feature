@@ -9,7 +9,7 @@ Feature: Group Chat Feature in Cicle app
   Scenario: Send message in group chat with valid data in message field
     And User input data in message field
     And User click send button
-#    Then Message is successfully sent and displayed in group chat
+    Then Message is successfully sent and displayed in group chat
 
   @PositiveCase
   Scenario: Send or upload video in group chat
