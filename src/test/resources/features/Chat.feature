@@ -44,7 +44,6 @@ Feature: Group Chat Feature in Cicle app
     Then Message is successfully mentioned all sent and displayed in group chat
 
 
-
   @NegativeCase
   Scenario: Send message in group chat with blank data in message field
     And User input blank data in message field
