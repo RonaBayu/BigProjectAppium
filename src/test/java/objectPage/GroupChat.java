@@ -58,7 +58,6 @@ public class GroupChat {
         mentionAllButton.click();
     }
 
-
     @AndroidFindBy(accessibility = "Shutter")
     private AndroidElement shutterCameraButton;
     public void clickShutterCameraButton(){
@@ -80,6 +79,5 @@ public class GroupChat {
     public void clickVideo(){
         video.click();
     }
-
 
 }

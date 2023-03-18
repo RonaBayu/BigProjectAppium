@@ -33,30 +33,23 @@ public class Chat {
 
     @Given("^User already opened Staging Cicle app and click big project team$")
     public void userAlreadyOpenedStagingCicleApp() {
-        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
         companyPage = new CompanyPage(driver);
         companyPage.clickBigProjectTeam();
     }
     @When("^User click group chat in Team$")
     public void userClickGroupChat() {
-        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-
         bigProjectTeam = new BigProjectTeam(driver);
         bigProjectTeam.clickGroupChat();
     }
     @And("^User input data in message field$")
     public void userInputDataInMessageField() {
-        driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
 
         groupChat = new GroupChat(driver);
         groupChat.clickMessageField();
-        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
         groupChat.inputMessageField("hello all!");
     }
     @And("^User click send button$")
     public void userClickSendButton() {
-        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-
         groupChat = new GroupChat(driver);
         groupChat.clickSendMessageButton();
     }
@@ -76,7 +69,6 @@ public class Chat {
     }
     @And("^User click attach logo$")
     public void userClickAttachLogo() throws InterruptedException {
-        driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
         Thread.sleep(3000);
 
         groupChat = new GroupChat(driver);
@@ -84,7 +76,6 @@ public class Chat {
     }
     @And("^User click image from gallery$")
     public void userClickImageFromGallery() throws InterruptedException {
-        driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
 
         groupChat = new GroupChat(driver);
         groupChat.clickAttachImagefromGalleryButton();
@@ -92,14 +83,12 @@ public class Chat {
     }
     @And("^User click image from camera$")
     public void userClickImageFromCamera() {
-        driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
         groupChat = new GroupChat(driver);
         groupChat.clickAttachImagefromCameraButton();
 
     }
     @And("^User click shutter camera$")
     public void userClickShutterCamera() {
-        driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
 
         groupChat = new GroupChat(driver);
         groupChat.clickShutterCameraButton();

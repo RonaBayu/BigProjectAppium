@@ -31,7 +31,7 @@ public class Hooks {
         URL url = new URL("http://127.0.0.1:4723/wd/hub");
         driver = new AndroidDriver<>(url, caps);
 
-        driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
     }
 
 

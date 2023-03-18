@@ -33,7 +33,6 @@ Feature: Group Chat Feature in Cicle app
     And User choose and click image
     Then Image from gallery is successfully sent and displayed in group chat
 
-
   @PositiveCase @done
   Scenario: Send message and mention all member in group chat with valid data in message field
     And User click message field
