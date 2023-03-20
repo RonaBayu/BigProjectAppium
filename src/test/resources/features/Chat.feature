@@ -5,20 +5,20 @@ Feature: Group Chat Feature in Cicle app
     Given User already opened Staging Cicle app and click big project team
     When User click group chat in Team
 
-  @PositiveCase @done
+  @PositiveCase @GC_001
   Scenario: Send message in group chat with valid data in message field
     And User input data in message field
     And User click send button
     Then Message is successfully sent and displayed in group chat
 
-  @PositiveCase
+  @PositiveCase @GC_002
   Scenario: Send or upload video in group chat
     And User click attach logo
     And User click Document & Video
     And User choose and click Video
     Then Video is successfully sent and displayed in group chat
 
-  @PositiveCase
+  @PositiveCase @GC_003
   Scenario: Send or upload image from camera in group chat
     And User click attach logo
     And User click image from camera
@@ -26,14 +26,14 @@ Feature: Group Chat Feature in Cicle app
     And User click checklist logo
     Then Image from camera is successfully sent and displayed in group chat
 
-  @PositiveCase
+  @PositiveCase @GC_004
   Scenario: Send or upload image from gallery in group chat
     And User click attach logo
     And User click image from gallery
     And User choose and click image
     Then Image from gallery is successfully sent and displayed in group chat
 
-  @PositiveCase @done
+  @PositiveCase @GC_005
   Scenario: Send message and mention all member in group chat with valid data in message field
     And User click message field
     And User input data in message field
@@ -41,6 +41,7 @@ Feature: Group Chat Feature in Cicle app
     And User click mention all button
     And User click send button
     Then Message is successfully mentioned all sent and displayed in group chat
+
 
 
   @NegativeCase
