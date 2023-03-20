@@ -74,7 +74,7 @@ public class GroupChat {
         image.click();
     }
 
-    @AndroidFindBy(xpath = "//android.widget.TextView[@text=(\"VID_20230318_061223.mp4\")]")
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text=(\"Video.mp4\")]")
     private AndroidElement video;
     public void clickVideo(){
         video.click();

@@ -7,7 +7,7 @@ Feature: Group Chat Feature in Cicle app
 
   @PositiveCase @done
   Scenario: Send message in group chat with valid data in message field
-    And User input data in message field
+    And User input data "Hello all!" in message field
     And User click send button
     Then Message is successfully sent and displayed in group chat
 
@@ -27,7 +27,7 @@ Feature: Group Chat Feature in Cicle app
     Then Image from camera is successfully sent and displayed in group chat
 
   @PositiveCase
-  Scenario:  Send or upload image from gallery in group chat
+  Scenario: Send or upload image from gallery in group chat
     And User click attach logo
     And User click image from gallery
     And User choose and click image
@@ -36,7 +36,7 @@ Feature: Group Chat Feature in Cicle app
   @PositiveCase @done
   Scenario: Send message and mention all member in group chat with valid data in message field
     And User click message field
-    And User input data in message field
+    And User input data "Hello all!" in message field
     And User click @ button
     And User click mention all button
     And User click send button
