@@ -14,7 +14,7 @@ import java.util.concurrent.TimeUnit;
 public class Hooks {
     public static AndroidDriver<AndroidElement> driver;
     public static DesiredCapabilities caps;
-    
+
     @Before
     public static void setUp() throws MalformedURLException {
         caps = new DesiredCapabilities();

@@ -38,6 +38,7 @@ Feature: Group Chat Feature in Cicle app
     And User click attach logo
     And User click Document & Video
     And User choose and click pdf file
+    Then pdf file is successfully sent and displayed in group chat
 
   @PositiveCase @GC_006
   Scenario: Send message and mention all member in group chat with valid data in message field

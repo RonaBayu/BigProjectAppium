@@ -136,7 +136,7 @@ public class Chat {
     @And("User choose and click pdf file")
     public void userChooseAndClickPdfFile() {
         groupChat = new GroupChat(driver);
-
+        groupChat.clickPdfFile();
     }
     @Then("Video is successfully sent and displayed in group chat")
     public void videoIsSuccessfullySentAndDisplayedInGroupChat() {
@@ -192,6 +192,12 @@ public class Chat {
     public void theMessageIsSuccessfullyDeletedAndTextOnMessageIsDisplayed(String arg0) {
         WebElement deletedMessage = (WebElement) driver.findElementByXPath("//android.view.View[contains(@content-desc, 'This message was deleted')]");
         Assert.assertEquals(true, deletedMessage.isDisplayed());
+    }
+
+    @Then("pdf file is successfully sent and displayed in group chat")
+    public void pdfFileIsSuccessfullySentAndDisplayedInGroupChat() {
+        WebElement pdfFile = (WebElement) driver.findElementByXPath("//android.widget.ImageView[contains(@content-desc, 'File pdf.docx')]");
+        Assert.assertEquals(true, pdfFile.isDisplayed());
     }
 
 }

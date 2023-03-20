@@ -21,6 +21,7 @@ public class GroupChat {
     public void inputMessageField(String keyword){
         messageField.sendKeys(keyword);
     }
+
     @AndroidFindBy(xpath = "//android.widget.Button[@index=\"6\"]")
     private AndroidElement sendMessageButton;
     public void clickSendMessageButton(){
@@ -79,7 +80,26 @@ public class GroupChat {
     public void clickVideo(){
         video.click();
     }
-
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text=(\"File pdf.pdf\")]")
+    private AndroidElement pdfFile;
+    public void clickPdfFile(){
+        pdfFile.click();
+    }
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text=(\"File word.docx\")]")
+    private AndroidElement wordFile;
+    public void clickWordFile(){
+        wordFile.click();
+    }
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text=(\"File excel.xlsx\")]")
+    private AndroidElement excelFile;
+    public void clickExcelFile(){
+        excelFile.click();
+    }
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text=(\"Apk file.apk\")]")
+    private AndroidElement apkFile;
+    public void clickApkFile(){
+        apkFile.click();
+    }
     @AndroidFindBy(xpath = "//android.view.View[contains(@content-desc, 'Hello all!')]")
     private AndroidElement message;
     public void clickMessage(){
