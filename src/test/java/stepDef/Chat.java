@@ -41,12 +41,12 @@ public class Chat {
         bigProjectTeam = new BigProjectTeam(driver);
         bigProjectTeam.clickGroupChat();
     }
-    @And("^User input data in message field$")
+    @And("^User input data ([^”]*) in message field$")
     public void userInputDataInMessageField() {
 
         groupChat = new GroupChat(driver);
         groupChat.clickMessageField();
-        groupChat.inputMessageField("hello all!");
+        groupChat.inputMessageField("Hello all!");
     }
     @And("^User click send button$")
     public void userClickSendButton() {
@@ -89,20 +89,16 @@ public class Chat {
     }
     @And("^User click shutter camera$")
     public void userClickShutterCamera() {
-
         groupChat = new GroupChat(driver);
         groupChat.clickShutterCameraButton();
     }
     @And("^User click checklist logo$")
     public void userClickChecklistLogo() {
-        driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
         groupChat = new GroupChat(driver);
         groupChat.clickChecklistCameraButton();
     }
     @And("^User choose and click image$")
     public void userChooseAndClickImage() throws InterruptedException {
-        driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
-
         groupChat = new GroupChat(driver);
         groupChat.clickImage();
         Thread.sleep(5000);
