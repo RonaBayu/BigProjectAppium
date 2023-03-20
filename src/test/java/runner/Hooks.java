@@ -34,7 +34,6 @@ public class Hooks {
         driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
     }
 
-
     @After
     public void tearDown(){
         driver.closeApp();
