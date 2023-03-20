@@ -21,7 +21,7 @@ import java.util.concurrent.TimeUnit;
 
 public class Chat {
     public static AndroidDriver<AndroidElement> driver;
-    Footer homePage;
+    Footer footer;
     CompanyPage companyPage;
     BigProjectTeam bigProjectTeam;
     GroupChat groupChat;
@@ -29,6 +29,7 @@ public class Chat {
     public Chat() {
         super();
         this.driver = Hooks.driver;
+
     }
 
     @Given("^User already opened Staging Cicle app and click big project team$")
@@ -36,23 +37,26 @@ public class Chat {
         companyPage = new CompanyPage(driver);
         companyPage.clickBigProjectTeam();
     }
+
     @When("^User click group chat in Team$")
     public void userClickGroupChat() {
         bigProjectTeam = new BigProjectTeam(driver);
         bigProjectTeam.clickGroupChat();
     }
-    @And("^User input data ([^”]*) in message field$")
-    public void userInputDataInMessageField() {
 
+    @And("^User input data in message field$")
+    public void userInputDataInMessageField() {
         groupChat = new GroupChat(driver);
         groupChat.clickMessageField();
         groupChat.inputMessageField("Hello all!");
     }
+
     @And("^User click send button$")
     public void userClickSendButton() {
         groupChat = new GroupChat(driver);
         groupChat.clickSendMessageButton();
     }
+
     @Then("^Message is successfully sent and displayed in group chat$")
     public void messageIsSuccessfullySentAndDisplayedInGroupChat() throws InterruptedException {
         Thread.sleep(3000);
@@ -67,6 +71,7 @@ public class Chat {
 //        String allertMessage= profilePage.assertNotifGetText();
 //        Assert.assertEquals(allertMessage,"Success");
     }
+
     @And("^User click attach logo$")
     public void userClickAttachLogo() throws InterruptedException {
         Thread.sleep(3000);
@@ -74,6 +79,7 @@ public class Chat {
         groupChat = new GroupChat(driver);
         groupChat.clickAttachFileButton();
     }
+
     @And("^User click image from gallery$")
     public void userClickImageFromGallery() throws InterruptedException {
 
@@ -81,32 +87,38 @@ public class Chat {
         groupChat.clickAttachImagefromGalleryButton();
         Thread.sleep(5000);
     }
+
     @And("^User click image from camera$")
     public void userClickImageFromCamera() {
         groupChat = new GroupChat(driver);
         groupChat.clickAttachImagefromCameraButton();
 
     }
+
     @And("^User click shutter camera$")
     public void userClickShutterCamera() {
         groupChat = new GroupChat(driver);
         groupChat.clickShutterCameraButton();
     }
+
     @And("^User click checklist logo$")
     public void userClickChecklistLogo() {
         groupChat = new GroupChat(driver);
         groupChat.clickChecklistCameraButton();
     }
+
     @And("^User choose and click image$")
     public void userChooseAndClickImage() throws InterruptedException {
         groupChat = new GroupChat(driver);
         groupChat.clickImage();
         Thread.sleep(5000);
     }
+
     @Then("^Image from camera is successfully sent and displayed in group chat$")
     public void imageFromCameraIsSuccessfullySentAndDisplayedInGroupChat() throws InterruptedException {
         Thread.sleep(5000);
     }
+
     @Then("^Image from gallery is successfully sent and displayed in group chat$")
     public void imageFromGalleryIsSuccessfullySentAndDisplayedInGroupChat() throws InterruptedException {
         Thread.sleep(5000);
@@ -148,11 +160,13 @@ public class Chat {
         groupChat = new GroupChat(driver);
         groupChat.clickMessageField();
     }
+
     @And("User click @ button")
     public void userClickButton() {
         groupChat = new GroupChat(driver);
         groupChat.clickMentionButton();
     }
+
     @And("User click mention all button")
     public void userClickMentionAllButton() {
         groupChat = new GroupChat(driver);
@@ -162,4 +176,5 @@ public class Chat {
     @Then("Message is successfully mentioned all sent and displayed in group chat")
     public void messageIsSuccessfullyMentionedAllSentAndDisplayedInGroupChat() {
     }
+
 }
