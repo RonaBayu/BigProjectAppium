@@ -80,4 +80,25 @@ public class GroupChat {
         video.click();
     }
 
+    @AndroidFindBy(xpath = "//android.view.View[contains(@content-desc, 'Hello all!')]")
+    private AndroidElement message;
+    public void clickMessage(){
+        message.click();
+    }
+
+    public void messageIsDisplayed(){
+        message.isDisplayed();
+    }
+
+    @AndroidFindBy(accessibility = "Delete")
+    private AndroidElement deleteMessage;
+    public void clickDeleteMessage(){
+        deleteMessage.click();
+    }
+    @AndroidFindBy(accessibility = "Ok")
+    private AndroidElement okDeleteMessage;
+    public void clickOkDeleteMessage(){
+        okDeleteMessage.click();
+    }
+
 }
