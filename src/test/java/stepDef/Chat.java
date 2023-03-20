@@ -44,13 +44,6 @@ public class Chat {
         bigProjectTeam.clickGroupChat();
     }
 
-//    @And("^User input data in message field$")
-//    public void userInputDataInMessageField() {
-//        groupChat = new GroupChat(driver);
-//        groupChat.clickMessageField();
-//        groupChat.inputMessageField("Hello all!");
-//    }
-
     @And("^User click send button$")
     public void userClickSendButton() {
         groupChat = new GroupChat(driver);
@@ -61,9 +54,6 @@ public class Chat {
     public void messageIsSuccessfullySentAndDisplayedInGroupChat() throws InterruptedException {
         Thread.sleep(3000);
         System.out.println("Chat is sent!!!");
-
-//        String allertMessage= profilePage.assertNotifGetText();
-//        Assert.assertEquals(allertMessage,"Success");
 
         WebElement message = (WebElement) driver.findElementByXPath("//android.view.View[contains(@content-desc, 'Hello all!')]");
         Assert.assertEquals(true, message.isDisplayed());
@@ -79,7 +69,6 @@ public class Chat {
 
     @And("^User click image from gallery$")
     public void userClickImageFromGallery() throws InterruptedException {
-
         groupChat = new GroupChat(driver);
         groupChat.clickAttachImagefromGalleryButton();
         Thread.sleep(5000);
@@ -129,8 +118,6 @@ public class Chat {
 
     @Then("User cannot send message and send button is not displayed")
     public void userCannotSendMessageAndSendButtonIsNotDisplayed() {
-//android.widget.Button[@index=\"6\"]
-//        Assert.assertFalse(sendButton.isDisplayed());
         WebElement sendButton = (WebElement) driver.findElementByXPath("//android.widget.Button[@index=\"6\"]");
         Assert.assertEquals(false, sendButton.isDisplayed());
     }
@@ -191,24 +178,20 @@ public class Chat {
         groupChat = new GroupChat(driver);
         groupChat.clickMessage();
     }
-
     @And("User click Delete button in pop up menu")
     public void userClickDeleteButtonInPopUpMenu() {
         groupChat = new GroupChat(driver);
         groupChat.clickDeleteMessage();
     }
-
     @And("User click OK button in the pop-up alert")
     public void userClickOKButtonInThePopUpAlert() {
         groupChat = new GroupChat(driver);
         groupChat.clickOkDeleteMessage();
     }
-
     @Then("The message is successfully deleted and text {string} on message is displayed")
     public void theMessageIsSuccessfullyDeletedAndTextOnMessageIsDisplayed(String arg0) {
         WebElement deletedMessage = (WebElement) driver.findElementByXPath("//android.view.View[contains(@content-desc, 'This message was deleted')]");
         Assert.assertEquals(true, deletedMessage.isDisplayed());
     }
-
 
 }
