@@ -5,6 +5,9 @@ import io.appium.java_client.android.AndroidElement;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 
+import io.cucumber.java.Scenario;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
 import java.net.MalformedURLException;
@@ -33,8 +36,20 @@ public class Hooks {
         driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
     }
 
+//    @After(order = 0)
     @After
     public void tearDown(){
         driver.closeApp();
     }
+
+//    @After(order = 1)
+//    public void takeScraenshotOnFailure(Scenario scenario) {
+//
+//        if (scenario.isFailed()) {
+//            TakesScreenshot ts = (TakesScreenshot) driver;
+//
+//            byte[] src = ts.getScreenshotAs(OutputType.BYTES);
+//            scenario.attach(src, "image/png", "screenshot");
+//        }
+//    }
 }

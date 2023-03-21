@@ -6,13 +6,10 @@ import io.cucumber.java.en.When;
 import objectPage.BigProjectTeam;
 import objectPage.CompanyPage;
 import objectPage.Footer;
-import objectPage.GroupChat;
 import runner.Hooks;
 
 public class CheckIns {
     public static AndroidDriver<AndroidElement> driver;
-    Footer homePage;
-    CompanyPage companyPage;
     BigProjectTeam bigProjectTeam;
     public CheckIns() {
         super();

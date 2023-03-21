@@ -52,16 +52,12 @@ public class Chat {
 
     @Then("^Message is successfully sent and displayed in group chat$")
     public void messageIsSuccessfullySentAndDisplayedInGroupChat() throws InterruptedException {
-        Thread.sleep(3000);
-        System.out.println("Chat is sent!!!");
-
         WebElement message = (WebElement) driver.findElementByXPath("//android.view.View[contains(@content-desc, 'Hello all!')]");
         Assert.assertEquals(true, message.isDisplayed());
     }
 
     @And("^User click attach logo$")
-    public void userClickAttachLogo() throws InterruptedException {
-        Thread.sleep(3000);
+    public void userClickAttachLogo() {
 
         groupChat = new GroupChat(driver);
         groupChat.clickAttachFileButton();
@@ -71,7 +67,6 @@ public class Chat {
     public void userClickImageFromGallery() throws InterruptedException {
         groupChat = new GroupChat(driver);
         groupChat.clickAttachImagefromGalleryButton();
-        Thread.sleep(5000);
     }
 
     @And("^User click image from camera$")
@@ -94,10 +89,9 @@ public class Chat {
     }
 
     @And("^User choose and click image$")
-    public void userChooseAndClickImage() throws InterruptedException {
+    public void userChooseAndClickImage() {
         groupChat = new GroupChat(driver);
         groupChat.clickImage();
-        Thread.sleep(5000);
     }
 
     @Then("^Image from camera is successfully sent and displayed in group chat$")
