@@ -23,9 +23,15 @@ public class Board {
         boardListNameField.sendKeys(keyword);
     }
     @AndroidFindBy(accessibility = "Submit")
-    private AndroidElement submitBoardButton;
-    public void clickBoardSubmitButton(){
-        submitBoardButton.click();
+    private AndroidElement submitButton;
+    public void clickSubmitButton(){
+        submitButton.click();
+    }
+
+    @AndroidFindBy(accessibility = "submit")
+    private AndroidElement submitCommentCardButton;
+    public void clickSubmitCommentCardButton(){
+        submitCommentCardButton.click();
     }
     @AndroidFindBy(accessibility = "Add new card")
     private AndroidElement addNewCardButton;
@@ -54,12 +60,12 @@ public class Board {
     }
 
     @AndroidFindBy(accessibility = "Add new comment...")
-    private AndroidElement addNewCommentCardButton;
-    public void clickAddNewCommentCardButton(){
-        addNewCommentCardButton.click();
+    private AndroidElement addNewCommentCardField;
+    public void clickAddNewCommentCardField(){
+        addNewCommentCardField.click();
     }
 
-    @AndroidFindBy(xpath = "//android.view.View[@content-desc=\"Private Card\"]/android.view.View[1]/android.view.View[2]")
+    @AndroidFindBy(xpath = "//android.view.View[2]/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[2]")
     private AndroidElement threeDotsofListButton;
     public void clickthreeDotsofListButton() {
         threeDotsofListButton.click();
@@ -124,5 +130,7 @@ public class Board {
     public void clickCopyCardButton() {
         copyCardButton.click();
     }
+
+
 }
 

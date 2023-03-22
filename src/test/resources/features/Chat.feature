@@ -75,10 +75,12 @@ Feature: Group Chat Feature in Cicle app
 #  Scenario: Send message and tag member in group chat with valid data in message field
 #  Scenario: Send link message in group chat with valid data in message field
 #  Scenario: Send message with background color in group chat with valid data in message field
-#
+
 #  @NegativeCase
-#  Scenario: Send message and upload file (excel) in group chat with valid data in message field
-#  Scenario: Send message and upload file (word) in group chat with valid data in message field#
-#
+
+
+
+
+
 #  @PositiveCase @PrivateChat
 #  Scenario: Send message in private chat to another member with valid data in message field

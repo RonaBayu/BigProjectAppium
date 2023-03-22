@@ -44,7 +44,7 @@ public class KanbanBoard {
     @And("User click submit button")
     public void userClickSubmitButton() {
         board = new Board(driver);
-        board.clickBoardSubmitButton();
+        board.clickSubmitButton();
     }
 
     @Then("Board list is successfully created")
@@ -100,4 +100,70 @@ public class KanbanBoard {
     public void cardIsNotSuccessfullyCreated() {
 
     }
+
+    @And("User click three dots of list that want to archive")
+    public void userClickThreeDotsOfListThatWantToArchive() {
+        board = new Board(driver);
+        board.clickthreeDotsofListButton();
+    }
+
+    @And("User click Archive this list button")
+    public void userClickArchiveThisListButton() {
+        board = new Board(driver);
+        board.clickArchiveThisListButton();
+    }
+
+    @Then("The board list is successfully archived and showed success message")
+    public void theBoardListIsSuccessfullyArchivedAndShowedSuccessMessage() {
+    }
+
+    @And("User click Archive all cards in this list button")
+    public void userClickArchiveAllCardsInThisListButton() {
+        board = new Board(driver);
+        board.clickArchiveAllCardsButton();
+    }
+
+    @Then("All cards is successfully archived and showed success message")
+    public void allCardsIsSuccessfullyArchivedAndShowedSuccessMessage() {
+    }
+
+    @And("User click card that has been created")
+    public void userClickCardThatWantToPrivate() {
+        board = new Board(driver);
+        board.clickCard1();
+    }
+
+    @And("User click three dots besides card name")
+    public void userClickThreeDotsBesidesCardName() {
+        board = new Board(driver);
+        board.clickThreeDotsofCardButton();
+    }
+
+    @And("User click set card to private button")
+    public void userClickSetCardToPrivateButton() {
+        board = new Board(driver);
+        board.clickSetCardToPrivateButton();
+    }
+
+    @Then("The card is successfully set to private and showed message {string}")
+    public void theCardIsSuccessfullySetToPrivateAndShowedMessage(String arg0) {
+    }
+
+    @And("User input blank data in add new comment field")
+    public void userInputBlankDataInAddNewCommentField() {
+        board = new Board(driver);
+        board.clickAddNewCommentCardField();
+    }
+
+    @And("User click submit comment button")
+    public void userClickSubmitCommentButton() {
+        board = new Board(driver);
+        board.clickSubmitCommentCardButton();
+    }
+
+    @Then("User is not successfully add comment and showed errror message")
+    public void userIsNotSuccessfullyAddCommentAndShowedErrrorMessage() {
+    }
+
+
 }
