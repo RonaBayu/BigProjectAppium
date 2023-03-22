@@ -7,9 +7,7 @@ import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import org.openqa.selenium.support.PageFactory;
 
 public class BigProjectTeam {
-//    private AndroidDriver<AndroidElement> driver;
     public BigProjectTeam(AndroidDriver<AndroidElement> driver) {
-//        this.driver = driver;
         PageFactory.initElements(new AppiumFieldDecorator(driver), this);
     }
 

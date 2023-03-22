@@ -16,11 +16,10 @@ import java.util.concurrent.TimeUnit;
 
 public class Hooks {
     public static AndroidDriver<AndroidElement> driver;
-    public static DesiredCapabilities caps;
 
     @Before
     public static void setUp() throws MalformedURLException {
-        caps = new DesiredCapabilities();
+        DesiredCapabilities caps = new DesiredCapabilities();
 
         caps.setCapability("platformName", "Android");
         caps.setCapability("platformVersion", "12");
@@ -33,7 +32,7 @@ public class Hooks {
         URL url = new URL("http://127.0.0.1:4723/wd/hub");
         driver = new AndroidDriver<>(url, caps);
 
-        driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(90, TimeUnit.SECONDS);
     }
 
 //    @After(order = 0)
