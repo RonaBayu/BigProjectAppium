@@ -3,6 +3,7 @@ package stepDef;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
+import io.cucumber.java.Before;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -31,6 +32,11 @@ public class Chat {
         super();
         this.driver = Hooks.driver;
     }
+
+//    @Before
+//    public void setup() {
+//        loginPage = new LoginPage(driver);
+//    }
 
     @Given("^User already opened Staging Cicle app and click big project team$")
     public void userAlreadyOpenedStagingCicleApp() {

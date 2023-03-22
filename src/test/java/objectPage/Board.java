@@ -7,9 +7,9 @@ import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import org.openqa.selenium.support.PageFactory;
 
 public class Board {
-    private AndroidDriver<AndroidElement> driver;
+//    private AndroidDriver<AndroidElement> driver;
     public Board(AndroidDriver<AndroidElement> driver) {
-        this.driver = driver;
+//        this.driver = driver;
         PageFactory.initElements(new AppiumFieldDecorator(driver), this);
     }
     @AndroidFindBy(xpath = "//android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.widget.Button")

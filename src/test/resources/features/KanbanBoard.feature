@@ -52,7 +52,7 @@ Feature: Kanban Board Feature in Cicle app
     And User click set card to private button
     Then The card is successfully set to private and showed message "update card is success"
 
-  @NegativeCase
+  @NegativeCase @test
   Scenario: User should not be able to add comment in card with blank data in add new comment field
     And User click card that has been created
     And User input blank data in add new comment field

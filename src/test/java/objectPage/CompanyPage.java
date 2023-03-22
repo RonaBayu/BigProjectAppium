@@ -7,9 +7,9 @@ import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import org.openqa.selenium.support.PageFactory;
 
 public class CompanyPage {
-    private AndroidDriver<AndroidElement> driver;
+//    private AndroidDriver<AndroidElement> driver;
     public CompanyPage(AndroidDriver<AndroidElement> driver) {
-        this.driver = driver;
+//        this.driver = driver;
         PageFactory.initElements(new AppiumFieldDecorator(driver), this);
     }
     @AndroidFindBy(accessibility = "Big Project Team\n" +

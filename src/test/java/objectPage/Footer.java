@@ -8,10 +8,9 @@ import org.openqa.selenium.support.PageFactory;
 
 public class Footer {
 
-//    public static AppiumDriver<MobileElement> driver;
-private AndroidDriver<AndroidElement> driver;
+//    private AndroidDriver<AndroidElement> driver;
     public Footer(AndroidDriver<AndroidElement> driver) {
-        this.driver = driver;
+//        this.driver = driver;
         PageFactory.initElements(new AppiumFieldDecorator(driver), this);
     }
     @AndroidFindBy(accessibility = "Home Tab 1 of 4")
