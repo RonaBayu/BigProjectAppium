@@ -50,5 +50,35 @@ public class CheckInPage {
         monDay.click();
     }
 
+    @AndroidFindBy(xpath = "//android.view.View[contains(@content-desc, \"How is it going?\")]")
+    private AndroidElement theQuestion1;
+    public void clickTheQuestion1(){
+        theQuestion1.click();
+    }
+
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text=\"Tell your comment here...\"]")
+    private AndroidElement tellTheCommentField;
+    public void clickTellTheCommentField(){
+        tellTheCommentField.click();
+    }
+
+    @AndroidFindBy(xpath = "//android.widget.EditText[@index=\"0\"]")
+    private AndroidElement tellTheCommentField1;
+    public void inputTellTheCommentField(String keyword){
+        tellTheCommentField1.sendKeys(keyword);
+    }
+
+
+    @AndroidFindBy(xpath = "//android.view.View[contains(@content-desc, \"I'm good!\")]/android.view.View[1]")
+    private AndroidElement threeDotsOfComment;
+    public void clickThreeDotsOfComment(){
+        threeDotsOfComment.click();
+    }
+
+    @AndroidFindBy(accessibility = "Archive")
+    private AndroidElement archiveButton;
+    public void clickArchiveButton(){
+        archiveButton.click();
+    }
 
 }

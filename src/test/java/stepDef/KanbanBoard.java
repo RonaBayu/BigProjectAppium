@@ -143,16 +143,16 @@ public class KanbanBoard {
 
     @And("User input blank data in add new comment field")
     public void userInputBlankDataInAddNewCommentField() {
-        board.clickAddNewCommentCardField();
+        board.clickAddNewCommentField();
     }
 
     @And("User click submit comment button")
     public void userClickSubmitCommentButton() {
-        board.clickSubmitCommentCardButton();
+        board.clickSubmitButton();
     }
 
-    @Then("User is not successfully add comment and showed errror message")
-    public void userIsNotSuccessfullyAddCommentAndShowedErrrorMessage() {
+    @Then("User is not successfully add comment and showed error message")
+    public void userIsNotSuccessfullyAddCommentAndShowedErrorMessage() {
     }
 
 

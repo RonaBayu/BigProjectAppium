@@ -114,9 +114,9 @@ public class GroupChat {
         deleteMessage.click();
     }
     @AndroidFindBy(accessibility = "Ok")
-    private AndroidElement okDeleteMessage;
-    public void clickOkDeleteMessage(){
-        okDeleteMessage.click();
+    private AndroidElement okButton;
+    public void clickOkButton(){
+        okButton.click();
     }
 
 }

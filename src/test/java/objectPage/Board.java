@@ -21,15 +21,15 @@ public class Board {
         boardListNameField.sendKeys(keyword);
     }
     @AndroidFindBy(accessibility = "Submit")
-    private AndroidElement submitButton;
-    public void clickSubmitButton(){
-        submitButton.click();
+    private AndroidElement submitButton1;
+    public void clickSubmitButton1(){
+        submitButton1.click();
     }
 
     @AndroidFindBy(accessibility = "submit")
-    private AndroidElement submitCommentCardButton;
-    public void clickSubmitCommentCardButton(){
-        submitCommentCardButton.click();
+    private AndroidElement submitButton;
+    public void clickSubmitButton(){
+        submitButton.click();
     }
     @AndroidFindBy(accessibility = "Add new card")
     private AndroidElement addNewCardButton;
@@ -58,9 +58,12 @@ public class Board {
     }
 
     @AndroidFindBy(accessibility = "Add new comment...")
-    private AndroidElement addNewCommentCardField;
-    public void clickAddNewCommentCardField(){
-        addNewCommentCardField.click();
+    private AndroidElement addNewCommentField;
+    public void clickAddNewCommentField(){
+        addNewCommentField.click();
+    }
+    public void inputaddNewCommentField(String keyword){
+        addNewCommentField.sendKeys(keyword);
     }
 
     @AndroidFindBy(xpath = "//android.view.View[2]/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[2]")

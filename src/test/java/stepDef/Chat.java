@@ -161,7 +161,7 @@ public class Chat {
 
     @And("User click OK button in the pop-up alert")
     public void userClickOKButtonInThePopUpAlert() {
-        groupChat.clickOkDeleteMessage();
+        groupChat.clickOkButton();
     }
 
     @Then("The message is successfully deleted and text {string} on message is displayed")
