@@ -26,6 +26,7 @@ public class KanbanBoard {
     public void setup() {
         companyPage = new CompanyPage(driver);
         bigProjectTeam = new BigProjectTeam(driver);
+        board = new Board(driver);
     }
 
     @When("User click Kanban Board in Team")

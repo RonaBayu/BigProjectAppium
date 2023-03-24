@@ -24,7 +24,7 @@ public class CheckInPage {
     public void inputQuestionField(String keyword){
         questionField.sendKeys(keyword);
     }
-    @AndroidFindBy(xpath = "//android.view.View[@content-desc=\"set time\"]]")
+    @AndroidFindBy(accessibility = "set time")
     private AndroidElement setTimeButton;
     public void clickSetTimeButton(){
         setTimeButton.click();

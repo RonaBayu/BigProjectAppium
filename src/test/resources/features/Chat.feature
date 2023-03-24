@@ -1,7 +1,10 @@
 @GroupChat
 Feature: Group Chat Feature in Cicle app
+  As a registered user
+  I want to be able to send messages in group chat
+  So that I can communicate with other members of the group
 
-  Background: User already logged in into Staging Cicle app
+  Background: User already logged in into Staging Cicle app and a member of team
     Given User already opened Staging Cicle app and click big project team
     When User click group chat in Team
 
