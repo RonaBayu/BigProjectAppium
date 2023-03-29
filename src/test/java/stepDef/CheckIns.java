@@ -142,4 +142,10 @@ public class CheckIns {
         checkIns.clickEditCommentField();
         checkIns.inputEditCommentField("I'm good all.");
     }
+
+    @Then("User should see error message and the question is unsuccessfully created")
+    public void userShouldSeeErrorMessageAndTheQuestionIsUnsuccessfullyCreated() {
+        WebElement startCollectingButton = (WebElement) driver.findElementByAccessibilityId("Start collecting answer!");
+        Assert.assertEquals(true, startCollectingButton.isDisplayed());
+    }
 }
