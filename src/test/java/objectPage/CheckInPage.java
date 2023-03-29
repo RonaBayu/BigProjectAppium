@@ -68,7 +68,6 @@ public class CheckInPage {
         tellTheCommentField1.sendKeys(keyword);
     }
 
-
     @AndroidFindBy(xpath = "//android.view.View[contains(@content-desc, \"I'm good!\")]/android.view.View[1]")
     private AndroidElement threeDotsOfComment;
     public void clickThreeDotsOfComment(){
@@ -79,6 +78,21 @@ public class CheckInPage {
     private AndroidElement archiveButton;
     public void clickArchiveButton(){
         archiveButton.click();
+    }
+
+    @AndroidFindBy(accessibility = "Edit Comment")
+    private AndroidElement editCommentButton;
+    public void clickEditCommentButton(){
+        editCommentButton.click();
+    }
+
+    @AndroidFindBy(xpath= "//android.widget.EditText[contains(@text, \"I'm good\")]")
+    private AndroidElement editCommentField;
+    public void clickEditCommentField(){
+        editCommentField.click();
+    }
+    public void inputEditCommentField(String keyword){
+        editCommentField.sendKeys(keyword);
     }
 
 }

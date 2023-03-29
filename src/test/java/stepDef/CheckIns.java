@@ -131,4 +131,15 @@ public class CheckIns {
     public void userClickOkButton() {
         groupChat.clickOkButton();
     }
+
+    @And("User click Edit Comment button")
+    public void userClickEditCommentButton() {
+        checkIns.clickEditCommentButton();
+    }
+
+    @And("User input new data {string} in comment field")
+    public void userInputNewDataInCommentField(String arg0) {
+        checkIns.clickEditCommentField();
+        checkIns.inputEditCommentField("I'm good all.");
+    }
 }

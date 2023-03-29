@@ -57,7 +57,7 @@ Feature: Kanban Board Feature in Cicle app
     And User click card that has been created
     And User input blank data in add new comment field
     And User click submit comment button
-    Then User is not successfully add comment and showed errror message
+    Then User is not successfully add comment and showed error message
 
 
   # Scenario: User edit board list name with blank data in board list name field

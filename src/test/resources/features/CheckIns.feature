@@ -61,6 +61,14 @@ Feature: CheckIns Feature in Cicle app
     Then User should not be able to see the comment
 
     @test
+  Scenario: User can edit the comment
+    And User click the question that has been created
+    And User click three dots of the comment
+    And User click Edit Comment button
+    And User input new data "I'm good all" in comment field
+    And User click submit button
+
+
   Scenario: User can archive the comment
     And User click the question that has been created
     And User click three dots of the comment
