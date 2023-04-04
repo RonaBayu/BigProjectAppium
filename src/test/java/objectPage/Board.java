@@ -90,10 +90,16 @@ public class Board {
         setAsACompleteListButton.click();
     }
 
-    @AndroidFindBy(accessibility = "Set as a Complete List")
+    @AndroidFindBy(accessibility = "Show menu")
     private AndroidElement completeListLogo;
     public void completeListLogoIsDisplayed(){
         completeListLogo.isDisplayed();
+    }
+
+    @AndroidFindBy(accessibility = "Unset Complete List")
+    private AndroidElement unsetCompleteListButton;
+    public void clickUnsetCompleteListButton(){
+        unsetCompleteListButton.click();
     }
 
     @AndroidFindBy(accessibility = "This is card 1\n" +
@@ -132,6 +138,11 @@ public class Board {
         copyCardButton.click();
     }
 
+//    @AndroidFindBy(xpath = "//android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View[1]/android.view.View[3]")
+//    private AndroidElement archivedListButton;
+//    public void clickArchivedListButton() {
+//        archivedListButton.click();
+//    }
 
 }
 

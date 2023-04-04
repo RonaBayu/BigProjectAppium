@@ -1,5 +1,6 @@
 package stepDef;
 
+import io.appium.java_client.MobileBy;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
 import io.cucumber.java.BeforeStep;
@@ -8,15 +9,19 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import objectPage.*;
 import org.junit.Assert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import runner.Hooks;
+
+import static org.junit.Assert.assertNull;
 
 public class CheckIns {
     public static AndroidDriver<AndroidElement> driver;
     BigProjectTeam bigProjectTeam;
     CheckInPage checkIns;
     Board board;
-    GroupChat groupChat;
+    GroupChatPage groupChat;
     public CheckIns() {
         super();
         this.driver = Hooks.driver;
@@ -27,7 +32,7 @@ public class CheckIns {
         bigProjectTeam = new BigProjectTeam(driver);
         board = new Board(driver);
         checkIns = new CheckInPage(driver);
-        groupChat = new GroupChat(driver);
+        groupChat = new GroupChatPage(driver);
     }
 
     @When("User click Check Ins in Team")
@@ -74,38 +79,21 @@ public class CheckIns {
         checkIns.clickTheQuestion1();
     }
 
-    @And("User click three dots of the question")
-    public void userClickThreeDotsOfTheQuestion() {
-    }
-
     @And("User click Archive button")
     public void userClickArchiveButton() {
         checkIns.clickArchiveButton();
     }
-
-    @And("User click Yes button")
-    public void userClickYesButton() {
-    }
-
-    @Then("User should not see the question in check ins page")
-    public void userShouldNotSeeTheQuestionInCheckInsPage() {
-        WebElement question = (WebElement) driver.findElementByXPath("//android.view.View[contains(@content-desc, \"How is it going?\")]");
-        Assert.assertEquals(false, question.isDisplayed());
-    }
-
 
     @And("User input valid data {string} in add new comment field")
     public void userInputValidDataInAddNewCommentField(String arg0) {
         board.clickAddNewCommentField();
         checkIns.clickTellTheCommentField();
         checkIns.inputTellTheCommentField("I'm good!");
-
     }
 
     @Then("User should be able to see the comment")
     public void userShouldBeAbleToSeeTheComment() throws InterruptedException {
         Thread.sleep(7000);
-
         WebElement comment = (WebElement) driver.findElementByXPath("//android.view.View[contains(@content-desc, \"I'm good!\")]");
         Assert.assertEquals(true, comment.isDisplayed());
     }
@@ -116,10 +104,10 @@ public class CheckIns {
         checkIns.clickTellTheCommentField();
     }
 
-    @Then("User should not be able to see the comment")
-    public void userShouldNotBeAbleToSeeTheComment() {
-        WebElement comment = (WebElement) driver.findElementByXPath("//android.view.View[contains(@content-desc, \"I'm good!\")]");
-        Assert.assertEquals(false, comment.isDisplayed());
+    @Then("User should not be able to submit comment")
+    public void userShouldNotBeAbleToSubmitComment() {
+        WebElement commentField = (WebElement) driver.findElementByXPath("//android.widget.TextView[@text=\"Tell your comment here...\"]");
+        Assert.assertEquals(true, commentField.isDisplayed());
     }
 
     @And("User click three dots of the comment")
@@ -147,5 +135,47 @@ public class CheckIns {
     public void userShouldSeeErrorMessageAndTheQuestionIsUnsuccessfullyCreated() {
         WebElement startCollectingButton = (WebElement) driver.findElementByAccessibilityId("Start collecting answer!");
         Assert.assertEquals(true, startCollectingButton.isDisplayed());
+    }
+
+    @Then("User should be able to see the new comment")
+    public void userShouldBeAbleToSeeTheNewComment() {
+        WebElement newComment = (WebElement) driver.findElementByXPath("//android.view.View[contains(@content-desc, \"I'm good all\")]");
+        Assert.assertEquals(true, newComment.isDisplayed());
+    }
+
+    @Then("The comment is successfully archived")
+    public void theCommentIsSuccessfullyArchived() {
+        WebElement comment = null;
+        try {
+            comment = driver.findElement(By.xpath("//android.view.View[contains(@content-desc, \"I'm good\")]"));
+        } catch (NoSuchElementException e) {
+        }
+        assertNull(comment);
+    }
+
+    @And("User click cheers logo")
+    public void userClickCheersLogo() {
+        checkIns.clickCheersButton();
+    }
+
+    @And("User input {string} in Give'em cheers field")
+    public void userInputInGiveEmCheersField(String arg0) {
+        checkIns.clickCheersField();
+        checkIns.inputCheersField("Cheers!");
+    }
+
+    @And("User click checklist button")
+    public void userClickChecklistButton() throws InterruptedException {
+        checkIns.clickChecklistCheersbutton();
+        Thread.sleep(7000);
+    }
+
+    @Then("The cheers is successfully created")
+    public void theCheersIsSuccessfullyCreated() throws InterruptedException {
+        Thread.sleep(7000);
+
+        WebElement cheers = (WebElement) driver.findElementByXPath("//android.widget.ImageView[@content-desc=\"Cheers!\"]");
+        Assert.assertEquals(true, cheers.isDisplayed());
+
     }
 }

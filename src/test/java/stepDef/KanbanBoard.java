@@ -8,8 +8,12 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import objectPage.*;
 import org.junit.Assert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import runner.Hooks;
+
+import static org.junit.Assert.assertNull;
 
 public class KanbanBoard {
     public static AndroidDriver<AndroidElement> driver;
@@ -47,6 +51,11 @@ public class KanbanBoard {
     @And("User click submit button")
     public void userClickSubmitButton() {
         board.clickSubmitButton();
+    }
+
+    @And("User click the submit button")
+    public void userClickTheSubmitButton() {
+        board.clickSubmitButton1();
     }
 
     @Then("Board list is successfully created")
@@ -96,10 +105,12 @@ public class KanbanBoard {
 
     @Then("Card is not successfully created")
     public void cardIsNotSuccessfullyCreated() {
+        WebElement submitButton = (WebElement) driver.findElementByAccessibilityId("Submit");
+        Assert.assertEquals(true, submitButton.isDisplayed());
 
     }
 
-    @And("User click three dots of list that want to archive")
+    @And("User click three dots of list")
     public void userClickThreeDotsOfListThatWantToArchive() {
         board.clickthreeDotsofListButton();
     }
@@ -111,6 +122,12 @@ public class KanbanBoard {
 
     @Then("The board list is successfully archived and showed success message")
     public void theBoardListIsSuccessfullyArchivedAndShowedSuccessMessage() {
+        WebElement list = null;
+        try {
+            list = driver.findElement(By.xpath("//android.view.View[@content-desc=\"Backlog\"]"));
+        } catch (NoSuchElementException e) {
+        }
+        assertNull(list);
     }
 
     @And("User click Archive all cards in this list button")
@@ -120,6 +137,12 @@ public class KanbanBoard {
 
     @Then("All cards is successfully archived and showed success message")
     public void allCardsIsSuccessfullyArchivedAndShowedSuccessMessage() {
+        WebElement card = null;
+        try {
+            card = driver.findElement(By.xpath("//android.widget.Button[contains(@content-desc, \"This is card 1\")]"));
+        } catch (NoSuchElementException e) {
+        }
+        assertNull(card);
     }
 
     @And("User click card that has been created")
@@ -153,7 +176,29 @@ public class KanbanBoard {
 
     @Then("User is not successfully add comment and showed error message")
     public void userIsNotSuccessfullyAddCommentAndShowedErrorMessage() {
+        WebElement submitButton = (WebElement) driver.findElementByAccessibilityId("submit");
+        Assert.assertEquals(true, submitButton.isDisplayed());
     }
 
 
+    @And("User click set as a complete list button")
+    public void userClickSetAsACompleteListButton() {
+        board.clickSetAsACompleteListButton();
+    }
+
+    @Then("The list is set as a complete")
+    public void theListIsSetAsAComplete() {
+        board.completeListLogoIsDisplayed();
+    }
+
+    @Then("The list is unset as a complete")
+    public void theListIsUnsetAsAComplete() {
+        WebElement checklistLogo = (WebElement) driver.findElementByAccessibilityId("Show menu");
+        Assert.assertEquals(false, checklistLogo.isDisplayed());
+    }
+
+    @And("User click unset complete list button")
+    public void userClickUnsetCompleteListButton() {
+        board.clickUnsetCompleteListButton();
+    }
 }

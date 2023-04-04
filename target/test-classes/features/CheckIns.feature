@@ -51,35 +51,34 @@ Feature: CheckIns Feature in Cicle app
     And User click submit button
     Then User should be able to see the comment
 
-  @NegativeCase @CI_007
+  @NegativeCase @CI_007 @done
   Scenario: User can not add blank data comment in the question that has been created
     And User click the question that has been created
     And User input blank data in add comment field
     And User click submit button
-    Then User should not be able to see the comment
+    Then User should not be able to submit comment
 
-    @test
+  @PositiveCase @CI_008 @done
   Scenario: User can edit the comment
     And User click the question that has been created
     And User click three dots of the comment
     And User click Edit Comment button
     And User input new data "I'm good all" in comment field
     And User click submit button
+    Then User should be able to see the new comment
 
-
+  @PositiveCase @CI_009 @done
   Scenario: User can archive the comment
     And User click the question that has been created
     And User click three dots of the comment
     And User click Archive button
     And user click ok button
-#    Then
+    Then The comment is successfully archived
 
-
-
-#  @PositiveCase
-#  Scenario: User archive the check in that has been created
-#    And User click the question that has been created
-#    And User click three dots of the question
-#    And User click Archive button
-#    And User click Yes button
-#    Then User should not see the question in check ins page
+  @PositiveCase @CI_010
+  Scenario: User should be able to give cheers on comment with input valid data
+    And User click the question that has been created
+    And User click cheers logo
+    And User input "Cheers!" in Give'em cheers field
+    And User click checklist button
+    Then The cheers is successfully created

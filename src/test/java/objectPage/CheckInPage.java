@@ -68,7 +68,7 @@ public class CheckInPage {
         tellTheCommentField1.sendKeys(keyword);
     }
 
-    @AndroidFindBy(xpath = "//android.view.View[contains(@content-desc, \"I'm good!\")]/android.view.View[1]")
+    @AndroidFindBy(xpath = "//android.view.View[contains(@content-desc, \"I'm good\")]/android.view.View[1]")
     private AndroidElement threeDotsOfComment;
     public void clickThreeDotsOfComment(){
         threeDotsOfComment.click();
@@ -93,6 +93,28 @@ public class CheckInPage {
     }
     public void inputEditCommentField(String keyword){
         editCommentField.sendKeys(keyword);
+    }
+
+    @AndroidFindBy(xpath = "//android.view.View[contains(@content-desc, \"Rona Bayu PQA17\")]/android.widget.ImageView[2]")
+    private AndroidElement cheersButton;
+    public void clickCheersButton(){
+        cheersButton.click();
+    }
+
+    @AndroidFindBy(xpath = "//android.view.View[contains(@content-desc, \"Rona Bayu PQA17\")]/android.widget.EditText")
+    private AndroidElement cheersField;
+
+    public void clickCheersField(){
+        cheersButton.click();
+    }
+    public void inputCheersField(String keyword){
+        cheersButton.sendKeys(keyword);
+    }
+
+    @AndroidFindBy(xpath = "//android.view.View[contains(@content-desc, \"Rona Bayu PQA17\")]/android.view.View[2]")
+    private AndroidElement checklistCheersbutton;
+    public void clickChecklistCheersbutton(){
+        checklistCheersbutton.click();
     }
 
 }
