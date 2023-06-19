@@ -4,14 +4,19 @@ import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
 import io.cucumber.java.BeforeStep;
 import io.cucumber.java.en.And;
+import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import objectPage.BigProjectTeam;
 import objectPage.CompanyPage;
 import objectPage.Footer;
 import org.junit.Assert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import runner.Hooks;
+
+import static org.junit.Assert.assertNull;
 
 public class PrivateChat {
     public static AndroidDriver<AndroidElement> driver;
@@ -37,19 +42,13 @@ public class PrivateChat {
     }
 
     @And("User click inbox button")
-    public void userClickInboxButton() {
+    public void userClickInboxButton() throws InterruptedException {
         footer.clickInbox();
-    }
-
-    @And("User click + add chat button")
-    public void userClickAddChatButton() {
+        Thread.sleep(5000);
     }
 
     @And("User click name that want to chat")
     public void userInputNameThatWantToChat() {
-//        footer.clickSearchNameField();
-//        footer.inputSearchNameField("Hanif");
-//        footer.clickName();
         footer.clickNameReceiver();
     }
 
@@ -73,7 +72,30 @@ public class PrivateChat {
     @And("User click message that they want to delete")
     public void userClickMessageThatTheyWantToDelete() {
         driver.findElementByXPath("//android.view.View[contains(@content-desc, 'Hello!')]").click();
+    }
 
+    @And("User search a non company member name")
+    public void userSearchANonCompanyMemberName() {
+        footer.clickSearchNameField();
+        footer.inputSearchNameField("John Doe");
+    }
 
+    @Then("The member name is not found")
+    public void theMemberNameIsNotFound() {
+        WebElement nonMember = null;
+        try {
+            nonMember = driver.findElementByAccessibilityId("John Doe");
+        } catch (NoSuchElementException e) {
+        }
+        assertNull(nonMember);
+    }
+
+    @Given("User already opened Staging Cicle app")
+    public void userAlreadyOpenedStagingCicleApp() {
+    }
+
+    @And("User click add chat button")
+    public void userClickAddChatButton() {
+        footer.clickAddChat();
     }
 }

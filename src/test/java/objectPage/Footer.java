@@ -11,46 +11,33 @@ public class Footer {
     public Footer(AndroidDriver<AndroidElement> driver) {
         PageFactory.initElements(new AppiumFieldDecorator(driver), this);
     }
-    @AndroidFindBy(accessibility = "Home Tab 1 of 4")
-    private AndroidElement homeIcon;
-    public void clickHomeIcon(){
-        homeIcon.click();
-    }
 
-    @AndroidFindBy(xpath = "//android.view.View[@content-desc=\"Menu\n" +
-            "Tab 4 of 4\"]")
+    @AndroidFindBy(accessibility = "Menu\n" +
+            "Tab 4 of 4")
     private AndroidElement menuIcon;
     public void clickMenuIcon(){
         menuIcon.click();
     }
 
-    @AndroidFindBy(xpath = "//android.view.View[@content-desc=\"Inbox\"]")
+    @AndroidFindBy(accessibility = "Inbox")
     private AndroidElement inbox;
     public void clickInbox(){
         inbox.click();
     }
-    @AndroidFindBy(xpath = "//android.widget.Button[@index=\"4\"]")
+
+    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.widget.Button")
     private AndroidElement addChat;
     public void clickAddChat(){
         addChat.click();
     }
 
-    @AndroidFindBy(xpath = "//android.widget.EditText[@text=\"Search Name\"]")
-    private AndroidElement searchNameField;
-    public void clickSearchNameField(){
-        searchNameField.click();
-    }
-    public void inputSearchNameField(String keyword){
-        searchNameField.sendKeys(keyword);
-    }
-
-    @AndroidFindBy(accessibility = "Hanif Fathurrahman-QA13")
+    @AndroidFindBy(accessibility = "Rona Bayu_PQA17")
     private AndroidElement name;
     public void clickName(){
         name.click();
     }
 
-    @AndroidFindBy(xpath = "//android.widget.ImageView[contains(@content-desc, \"Hanif Fathurrahman-QA13\")]")
+    @AndroidFindBy(xpath = "//android.widget.ImageView[contains(@content-desc, \"Rona Bayu_PQA17\")]")
     private AndroidElement nameReceiver;
     public void clickNameReceiver(){
         nameReceiver.click();
@@ -69,5 +56,15 @@ public class Footer {
     private AndroidElement sendButton;
     public void clickSendButton(){
         sendButton.click();
+    }
+
+    @AndroidFindBy(xpath = "//android.widget.EditText[contains(@text, 'Search Name')]")
+    private AndroidElement searchNameField;
+    public void clickSearchNameField(){
+        searchNameField.click();
+    }
+
+    public void inputSearchNameField(String keyword){
+        searchNameField.sendKeys(keyword);
     }
 }

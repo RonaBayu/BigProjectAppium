@@ -2,6 +2,7 @@ package stepDef;
 
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
+import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.cucumber.java.BeforeStep;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
@@ -105,9 +106,9 @@ public class KanbanBoard {
 
     @Then("Card is not successfully created")
     public void cardIsNotSuccessfullyCreated() {
-        WebElement submitButton = (WebElement) driver.findElementByAccessibilityId("Submit");
-        Assert.assertEquals(true, submitButton.isDisplayed());
+        WebElement addNewCardButton = (WebElement) driver.findElementByAccessibilityId("Add new card");
 
+        Assert.assertEquals(true, addNewCardButton.isDisplayed());
     }
 
     @And("User click three dots of list")
@@ -180,7 +181,6 @@ public class KanbanBoard {
         Assert.assertEquals(true, submitButton.isDisplayed());
     }
 
-
     @And("User click set as a complete list button")
     public void userClickSetAsACompleteListButton() {
         board.clickSetAsACompleteListButton();
@@ -191,14 +191,35 @@ public class KanbanBoard {
         board.completeListLogoIsDisplayed();
     }
 
-    @Then("The list is unset as a complete")
-    public void theListIsUnsetAsAComplete() {
-        WebElement checklistLogo = (WebElement) driver.findElementByAccessibilityId("Show menu");
-        Assert.assertEquals(false, checklistLogo.isDisplayed());
-    }
-
     @And("User click unset complete list button")
     public void userClickUnsetCompleteListButton() {
         board.clickUnsetCompleteListButton();
     }
+
+    @Then("The list is unset as a complete")
+    public void theListIsUnsetAsAComplete() {
+        WebElement checklistLogo = null;
+        try {
+            checklistLogo = driver.findElementByXPath("//android.widget.Button[@content-desc=\"Show menu\"]");
+        } catch (NoSuchElementException e) {
+        }
+        assertNull(checklistLogo);
+    }
+
+    @And("User input blank data in label name field")
+    public void userInputBlankDataInLabelNameField() {
+    }
+
+    @And("User click +label button")
+    public void userClickLabelButton() {
+        WebElement labelButton = (WebElement) driver.findElementByXPath("//android.view.View[@content-desc=\"This is card 1\"]/android.view.View[2]/android.view.View/android.view.View/android.view.View[3]");
+        labelButton.click();
+    }
+
+    @Then("The label is not successfully added")
+    public void theLabelIsNotSuccessfullyAdded() {
+        WebElement submitButton = (WebElement) driver.findElementByAccessibilityId("submit");
+        Assert.assertEquals(true, submitButton.isDisplayed());
+    }
+
 }

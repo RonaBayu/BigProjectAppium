@@ -25,6 +25,7 @@ public class Hooks {
         caps.setCapability("platformVersion", "12");
         caps.setCapability("deviceName", "Pixel 5");
 
+
         caps.setCapability("appPackage", "staging.cicle");
         caps.setCapability("appActivity", "staging.cicle.MainActivity");
         caps.setCapability("noReset", "true");

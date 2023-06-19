@@ -35,16 +35,6 @@ public class GroupChatPage {
     public void clickAttachDocumentVideoButton(){
         attachDocumentVideoButton.click();
     }
-    @AndroidFindBy(accessibility = "Image from Camera")
-    private AndroidElement attachImagefromCameraButton;
-    public void clickAttachImagefromCameraButton(){
-        attachImagefromCameraButton.click();
-    }
-    @AndroidFindBy(accessibility = "Image from Gallery")
-    private AndroidElement attachImagefromGalleryButton;
-    public void clickAttachImagefromGalleryButton(){
-        attachImagefromGalleryButton.click();
-    }
 
     @AndroidFindBy(xpath = "//android.view.View[@index=\"3\"]")
     private AndroidElement mentionButton;
@@ -57,27 +47,6 @@ public class GroupChatPage {
         mentionAllButton.click();
     }
 
-    @AndroidFindBy(accessibility = "Shutter")
-    private AndroidElement shutterCameraButton;
-    public void clickShutterCameraButton(){
-        shutterCameraButton.click();
-    }
-    @AndroidFindBy(accessibility = "Done")
-    private AndroidElement checklistCameraButton;
-    public void clickChecklistCameraButton(){
-        checklistCameraButton.click();
-    }
-    @AndroidFindBy(id = "com.google.android.documentsui:id/icon_thumb")
-    private AndroidElement image;
-    public void clickImage(){
-        image.click();
-    }
-
-    @AndroidFindBy(xpath = "//android.widget.TextView[@text=(\"Video.mp4\")]")
-    private AndroidElement video;
-    public void clickVideo(){
-        video.click();
-    }
     @AndroidFindBy(xpath = "//android.widget.TextView[@text=(\"File pdf.pdf\")]")
     private AndroidElement pdfFile;
     public void clickPdfFile(){
@@ -93,21 +62,11 @@ public class GroupChatPage {
     public void clickExcelFile(){
         excelFile.click();
     }
-    @AndroidFindBy(xpath = "//android.widget.TextView[@text=(\"Apk file.apk\")]")
-    private AndroidElement apkFile;
-    public void clickApkFile(){
-        apkFile.click();
-    }
     @AndroidFindBy(xpath = "//android.view.View[contains(@content-desc, 'Hello all!')]")
     private AndroidElement message;
     public void clickMessage(){
         message.click();
     }
-
-    public void messageIsDisplayed(){
-        message.isDisplayed();
-    }
-
     @AndroidFindBy(accessibility = "Delete")
     private AndroidElement deleteMessage;
     public void clickDeleteMessage(){
@@ -119,4 +78,15 @@ public class GroupChatPage {
         okButton.click();
     }
 
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text=(\"Apk file.apk\")]")
+    private AndroidElement apkFile;
+    public void clickApkFile(){
+        apkFile.click();
+    }
+
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text=(\"File txt.txt\")]")
+    private AndroidElement txtFile;
+    public void clickTxtFile(){
+        txtFile.click();
+    }
 }

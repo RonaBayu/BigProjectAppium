@@ -95,26 +95,7 @@ public class CheckInPage {
         editCommentField.sendKeys(keyword);
     }
 
-    @AndroidFindBy(xpath = "//android.view.View[contains(@content-desc, \"Rona Bayu PQA17\")]/android.widget.ImageView[2]")
-    private AndroidElement cheersButton;
-    public void clickCheersButton(){
-        cheersButton.click();
-    }
 
-    @AndroidFindBy(xpath = "//android.view.View[contains(@content-desc, \"Rona Bayu PQA17\")]/android.widget.EditText")
-    private AndroidElement cheersField;
 
-    public void clickCheersField(){
-        cheersButton.click();
-    }
-    public void inputCheersField(String keyword){
-        cheersButton.sendKeys(keyword);
-    }
-
-    @AndroidFindBy(xpath = "//android.view.View[contains(@content-desc, \"Rona Bayu PQA17\")]/android.view.View[2]")
-    private AndroidElement checklistCheersbutton;
-    public void clickChecklistCheersbutton(){
-        checklistCheersbutton.click();
-    }
 
 }

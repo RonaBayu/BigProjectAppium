@@ -5,8 +5,8 @@ Feature: CheckIns Feature in Cicle app
     Given User already opened Staging Cicle app and click big project team
     When User click Check Ins in Team
 
-  @PositiveCase @CI_001 @done
-  Scenario: User create check in with valid data in all field
+  @CI_001 @PositiveCase
+  Scenario: User should be able to create check in with valid data in all field
     And User click "+" button in Check-Ins page
     And User input data "How is it going?" in question field
     And User input which day that want to ask the question
@@ -14,13 +14,13 @@ Feature: CheckIns Feature in Cicle app
     And User click start collecting answers! button
     Then User should see success message and the question is successfully created
 
-  @NegativeCase @CI_002 @done
+  @CI_002 @NegativeCase
   Scenario: User should not be able to create check in without input any data
     And User click "+" button in Check-Ins page
     And User click start collecting answers! button
     Then User should see error message and the question is unsuccessfully created
 
-  @NegativeCase @CI_003 @done
+  @CI_003 @NegativeCase
   Scenario: User should not be able to create check in without input data in question field
     And User click "+" button in Check-Ins page
     And User input which day that want to ask the question
@@ -28,7 +28,7 @@ Feature: CheckIns Feature in Cicle app
     And User click start collecting answers! button
     Then User should see error message and the question is unsuccessfully created
 
-  @NegativeCase @CI_004 @done
+  @CI_004 @NegativeCase
   Scenario: User should not be able to create check in without input data in day
     And User click "+" button in Check-Ins page
     And User input data "How is it going?" in question field
@@ -36,7 +36,7 @@ Feature: CheckIns Feature in Cicle app
     And User click start collecting answers! button
     Then User should see error message and the question is unsuccessfully created
 
-  @NegativeCase @CI_005 @done
+  @CI_005 @NegativeCase
   Scenario: User should not be able to create check in without input data in set time
     And User click "+" button in Check-Ins page
     And User input data "How is it going?" in question field
@@ -44,22 +44,22 @@ Feature: CheckIns Feature in Cicle app
     And User click start collecting answers! button
     Then User should see error message and the question is unsuccessfully created
 
-  @PositiveCase @CI_006 @done
-  Scenario: User add comment in the question that has been created
+  @CI_006 @PositiveCase
+  Scenario: User should be able to add comment in the question that has been created
     And User click the question that has been created
     And User input valid data "I'm good" in add new comment field
     And User click submit button
     Then User should be able to see the comment
 
-  @NegativeCase @CI_007 @done
-  Scenario: User can not add blank data comment in the question that has been created
+  @CI_007 @NegativeCase
+  Scenario: User should not be able to add blank data comment in the question that has been created
     And User click the question that has been created
     And User input blank data in add comment field
     And User click submit button
     Then User should not be able to submit comment
 
-  @PositiveCase @CI_008 @done
-  Scenario: User can edit the comment
+  @CI_008 @PositiveCase
+  Scenario: User should be able to edit the comment
     And User click the question that has been created
     And User click three dots of the comment
     And User click Edit Comment button
@@ -67,18 +67,19 @@ Feature: CheckIns Feature in Cicle app
     And User click submit button
     Then User should be able to see the new comment
 
-  @PositiveCase @CI_009 @done
-  Scenario: User can archive the comment
+  @CI_009 @PositiveCase
+  Scenario: User should be able to tag member in comment
+    And User click the question that has been created
+    And User click comment field
+    And User click @ symbol
+    And User click the member
+    And User click submit button
+    Then User is successfully tag member in comment
+
+  @CI_010 @PositiveCase
+  Scenario: User should be able to archive the comment
     And User click the question that has been created
     And User click three dots of the comment
     And User click Archive button
     And user click ok button
     Then The comment is successfully archived
-
-  @PositiveCase @CI_010
-  Scenario: User should be able to give cheers on comment with input valid data
-    And User click the question that has been created
-    And User click cheers logo
-    And User input "Cheers!" in Give'em cheers field
-    And User click checklist button
-    Then The cheers is successfully created

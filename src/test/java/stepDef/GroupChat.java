@@ -63,39 +63,6 @@ public class GroupChat {
         groupChat.clickAttachFileButton();
     }
 
-    @And("^User click image from gallery$")
-    public void userClickImageFromGallery() throws InterruptedException {
-        groupChat.clickAttachImagefromGalleryButton();
-    }
-
-    @And("^User click image from camera$")
-    public void userClickImageFromCamera() {
-        groupChat.clickAttachImagefromCameraButton();
-    }
-
-    @And("^User click shutter camera$")
-    public void userClickShutterCamera() {
-        groupChat.clickShutterCameraButton();
-    }
-
-    @And("^User click checklist logo$")
-    public void userClickChecklistLogo() {
-        groupChat.clickChecklistCameraButton();
-    }
-
-    @And("^User choose and click image$")
-    public void userChooseAndClickImage() {
-        groupChat.clickImage();
-    }
-
-    @Then("^Image from camera is successfully sent and displayed in group chat$")
-    public void imageFromCameraIsSuccessfullySentAndDisplayedInGroupChat() throws InterruptedException {
-    }
-
-    @Then("^Image from gallery is successfully sent and displayed in group chat$")
-    public void imageFromGalleryIsSuccessfullySentAndDisplayedInGroupChat() throws InterruptedException {
-    }
-
     @And("User input blank data in message field")
     public void userInputBlankDataInMessageField() {
         groupChat.clickMessageField();
@@ -103,12 +70,10 @@ public class GroupChat {
 
     @Then("User cannot send message and send button is not displayed")
     public void userCannotSendMessageAndSendButtonIsNotDisplayed() {
-
         WebElement sendButton = null;
         try {
             sendButton = driver.findElement(By.xpath("//android.widget.Button[@index=\\\"6\\\"]"));
         } catch (NoSuchElementException e) {
-            //Tombol tidak ditemukan
         }
         assertNull(sendButton);
     }
@@ -118,19 +83,9 @@ public class GroupChat {
         groupChat.clickAttachDocumentVideoButton();
     }
 
-    @And("^User choose and click Video$")
-    public void userChooseAndClickVideo() {
-        groupChat.clickVideo();
-    }
-
     @And("User choose and click pdf file")
     public void userChooseAndClickPdfFile() {
         groupChat.clickPdfFile();
-    }
-
-    @Then("Video is successfully sent and displayed in group chat")
-    public void videoIsSuccessfullySentAndDisplayedInGroupChat() {
-        groupChat = new GroupChatPage(driver);
     }
 
     @And("User click message field")
@@ -150,6 +105,8 @@ public class GroupChat {
 
     @Then("Message is successfully mentioned all sent and displayed in group chat")
     public void messageIsSuccessfullyMentionedAllSentAndDisplayedInGroupChat() {
+        WebElement namaBayu = (WebElement) driver.findElementByXPath("//android.widget.ImageView[@content-desc=\"Rona Bayu_PQA17\"]");
+        Assert.assertEquals(true, namaBayu.isDisplayed());
     }
 
     @And("User input data {string} in message field")
@@ -181,8 +138,59 @@ public class GroupChat {
 
     @Then("pdf file is successfully sent and displayed in group chat")
     public void pdfFileIsSuccessfullySentAndDisplayedInGroupChat() {
-        WebElement pdfFile = (WebElement) driver.findElementByXPath("//android.widget.ImageView[contains(@content-desc, 'File pdf.docx')]");
+        WebElement pdfFile = (WebElement) driver.findElementByXPath("//android.widget.ImageView[contains(@content-desc, 'File pdf.pdf')]");
         Assert.assertEquals(true, pdfFile.isDisplayed());
     }
 
+    @And("User choose and click word file")
+    public void userChooseAndClickWordFile() {
+        groupChat.clickWordFile();
+    }
+
+    @Then("Word file is successfully sent and displayed in group chat")
+    public void wordFileIsSuccessfullySentAndDisplayedInGroupChat() {
+        WebElement wordFile = (WebElement) driver.findElementByXPath("//android.widget.ImageView[contains(@content-desc, 'File word.docx')]");
+        Assert.assertEquals(true, wordFile.isDisplayed());
+    }
+
+    @And("User choose and click excel file")
+    public void userChooseAndClickExcelFile() {
+        groupChat.clickExcelFile();
+    }
+
+    @Then("Excel file is successfully sent and displayed in group chat")
+    public void excelFileIsSuccessfullySentAndDisplayedInGroupChat() {
+        WebElement excelFile = (WebElement) driver.findElementByXPath("//android.widget.ImageView[contains(@content-desc, 'File excel.xlsx')]");
+        Assert.assertEquals(true, excelFile.isDisplayed());
+    }
+
+    @And("User choose and click txt file")
+    public void userChooseAndClickTxtFile() {
+        groupChat.clickTxtFile();
+    }
+
+    @Then("Txt file is unsuccessfully sent")
+    public void txtFileIsUnsuccessfullySent() {
+        WebElement txtFile = null;
+        try {
+            txtFile = driver.findElement(By.xpath("//android.widget.ImageView[contains(@content-desc, 'File txt.txt')]"));
+        } catch (NoSuchElementException e) {
+        }
+        assertNull(txtFile);
+    }
+
+    @And("User choose and click apk file")
+    public void userChooseAndClickApkFile() {
+        groupChat.clickApkFile();
+    }
+
+    @Then("Apk file is unsuccessfully sent")
+    public void apkFileIsUnsuccessfullySent() {
+        WebElement apkFile = null;
+        try {
+            apkFile = driver.findElement(By.xpath("//android.widget.ImageView[contains(@content-desc, 'Apk file.apk')]"));
+        } catch (NoSuchElementException e) {
+        }
+        assertNull(apkFile);
+    }
 }

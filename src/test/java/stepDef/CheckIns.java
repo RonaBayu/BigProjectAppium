@@ -1,6 +1,5 @@
 package stepDef;
 
-import io.appium.java_client.MobileBy;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
 import io.cucumber.java.BeforeStep;
@@ -153,29 +152,27 @@ public class CheckIns {
         assertNull(comment);
     }
 
-    @And("User click cheers logo")
-    public void userClickCheersLogo() {
-        checkIns.clickCheersButton();
+    @And("User click comment field")
+    public void userClickCommentField() {
+        board.clickAddNewCommentField();
     }
 
-    @And("User input {string} in Give'em cheers field")
-    public void userInputInGiveEmCheersField(String arg0) {
-        checkIns.clickCheersField();
-        checkIns.inputCheersField("Cheers!");
+    @And("User click the member")
+    public void userClickTheMember() {
+        WebElement member = (WebElement) driver.findElementByAccessibilityId("Rona Bayu_PQA17");
+        member.click();
     }
 
-    @And("User click checklist button")
-    public void userClickChecklistButton() throws InterruptedException {
-        checkIns.clickChecklistCheersbutton();
-        Thread.sleep(7000);
+    @Then("User is successfully tag member in comment")
+    public void userIsSuccessfullyTagMemberInComment() {
+        WebElement member = (WebElement) driver.findElementByAccessibilityId(" ￼ \n" +
+                "Rona Bayu_PQA17");
+        Assert.assertEquals(true, member.isDisplayed());
     }
 
-    @Then("The cheers is successfully created")
-    public void theCheersIsSuccessfullyCreated() throws InterruptedException {
-        Thread.sleep(7000);
-
-        WebElement cheers = (WebElement) driver.findElementByXPath("//android.widget.ImageView[@content-desc=\"Cheers!\"]");
-        Assert.assertEquals(true, cheers.isDisplayed());
-
+    @And("User click @ symbol")
+    public void userClickSymbol() {
+        WebElement symbol = (WebElement) driver.findElementByXPath("//android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View[1]/android.widget.Button[1]");
+        symbol.click();
     }
 }

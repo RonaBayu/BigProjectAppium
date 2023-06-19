@@ -13,6 +13,11 @@ public class CompanyPage {
     @AndroidFindBy(accessibility = "Big Project Team\n" +
             "This is for big project only.")
     private AndroidElement bigProjectTeam;
+
+//    @AndroidFindBy(accessibility = "Big Project Team\n" +
+//            "This is for big project only.")
+//    private AndroidElement bigProjectTeam;
+
     public void clickBigProjectTeam(){
         bigProjectTeam.click();
     }
