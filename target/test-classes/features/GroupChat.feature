@@ -55,14 +55,14 @@ Feature: Group Chat Feature in Cicle app
     And User input blank data in message field
     Then User cannot send message and send button is not displayed
 
-  @GC_008 @NegativeCase @test
+  @GC_008 @NegativeCase
   Scenario: User should not be able to Send or upload file txt format in group chat
     And User click attach logo
     And User click Document & Video
     And User choose and click txt file
     Then Txt file is unsuccessfully sent
 
-  @GC_009 @NegativeCase @test
+  @GC_009 @NegativeCase
   Scenario: User should not be able to Send or upload file apk format in group chat
     And User click attach logo
     And User click Document & Video

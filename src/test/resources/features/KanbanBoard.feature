@@ -71,6 +71,3 @@ Feature: Kanban Board Feature in Cicle app
     And User click three dots of list
     And User click Archive this list button
     Then The board list is successfully archived and showed success message
-
-  #negative4CASE
-  #KB_004Verify

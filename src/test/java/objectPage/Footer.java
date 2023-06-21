@@ -37,7 +37,13 @@ public class Footer {
         name.click();
     }
 
-    @AndroidFindBy(xpath = "//android.widget.ImageView[contains(@content-desc, \"Rona Bayu_PQA17\")]")
+//    @AndroidFindBy(xpath = "//android.widget.ImageView[contains(@content-desc, \"Rona Bayu_PQA17\")]")
+//    private AndroidElement nameReceiver;
+//    public void clickNameReceiver(){
+//        nameReceiver.click();
+//    }
+
+    @AndroidFindBy(xpath = "//android.widget.ImageView[contains(@content-desc, \"Hanif Fathurrahman-QA13\")]")
     private AndroidElement nameReceiver;
     public void clickNameReceiver(){
         nameReceiver.click();

@@ -10,13 +10,13 @@ public class CompanyPage {
     public CompanyPage(AndroidDriver<AndroidElement> driver) {
         PageFactory.initElements(new AppiumFieldDecorator(driver), this);
     }
-    @AndroidFindBy(accessibility = "Big Project Team\n" +
-            "This is for big project only.")
-    private AndroidElement bigProjectTeam;
-
 //    @AndroidFindBy(accessibility = "Big Project Team\n" +
 //            "This is for big project only.")
 //    private AndroidElement bigProjectTeam;
+
+    @AndroidFindBy(accessibility = "Sekolah QA 17\n" +
+            "Tempat kumpul seluruh Siswa dan Instruktur Sekolah QA Batch 17")
+    private AndroidElement bigProjectTeam;
 
     public void clickBigProjectTeam(){
         bigProjectTeam.click();
